@@ -1,43 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
 	[SerializeField]
-	private Vector3 gravityDirection;
+	private Vector3 defaultGravityDirection = new Vector3(0.0f, -1f, 0.0f);
 
 	[SerializeField]
-	private float gravityForce;
+	private float defaultGravityForce = 9.81f;
 
-	public Vector3 GravityDirection
-	{
-		get
-		{
-			return gravityDirection;
-		}
-		set
-		{
-			gravityDirection = value;
-		}
-	}
-
-	public float GravityForce
-	{
-		get
-		{
-			return gravityForce;
-		}
-		set
-		{
-			gravityForce = value;
-		}
-	}
+	[SerializeField]
+	private float defaultTimeScale = 1.0f;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+		Physics.gravity = defaultGravityDirection * defaultGravityForce;
+		Time.timeScale = defaultTimeScale;
 	}
 	
 	// Update is called once per frame
