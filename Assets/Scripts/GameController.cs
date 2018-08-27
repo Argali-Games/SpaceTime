@@ -2,11 +2,9 @@
 
 public class GameController : MonoBehaviour
 {
-	[SerializeField]
-	private Vector3 defaultGravityDirection = new Vector3(0.0f, -1f, 0.0f);
-
-	[SerializeField]
-	private float defaultGravityForce = 9.81f;
+	public Vector3 defaultGravityDirection = new Vector3(0.0f, -1f, 0.0f);
+	
+	public float defaultGravityForce = 9.81f;
 
 	[SerializeField]
 	private float defaultTimeScale = 1.0f;
