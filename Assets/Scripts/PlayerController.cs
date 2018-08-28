@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody myRigidbody;
 	private CharacterMovement playerCharacterMovement;
 	private GravityController playerGravityController;
+	private TimeController playerTimeController;
 
 	// Use this for initialization
 	void Start ()
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
 		myRigidbody = GetComponent<Rigidbody>();
 		playerCharacterMovement = GetComponent<CharacterMovement>();
 		playerGravityController = GetComponent<GravityController>();
+		playerTimeController = GetComponent<TimeController>();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,15 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			playerGravityController.ChangeGravityByPlayerView();
+		}
+
+		if (Input.GetAxis("Time Scale Scroll") != 0)
+		{
+			playerTimeController.AdjustTime(Input.GetAxis("Time Scale Scroll"), true);
+		}
+		else if (Input.GetAxis("Time Scale") != 0)
+		{
+			playerTimeController.AdjustTime(Input.GetAxis("Time Scale"), false);
 		}
 
 		// move character based on input

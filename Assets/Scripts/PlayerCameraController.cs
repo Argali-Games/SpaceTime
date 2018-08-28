@@ -26,14 +26,14 @@ public class PlayerCameraController : MonoBehaviour
 	// rotate camera on x-axis to look up and down
 	private void LookVertical()
 	{
-		transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * movementSpeedVertical, 0.0f), Space.Self);
+		transform.Rotate(new Vector3(Input.GetAxis("Look Y") * movementSpeedVertical, 0.0f), Space.Self);
 		//TODO: Controller right stick vertical
 	}
 
 	// rotate player to change look direction
 	private void LookHorizontal()
 	{
-		Player.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X") * movementSpeedHorizontal), Space.Self);
+		Player.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Look X") * movementSpeedHorizontal), Space.Self);
 		// TODO: Controller right stick horizontal
 	}
 }
